@@ -144,7 +144,7 @@ export default function Page() {
         <div className="container mx-auto px-4 py-8">
           <div className="text-center text-sm text-muted-foreground">
             <p>Built with Next.js, shadcn/ui, and AI assistance</p>
-            <p className="mt-2">© {new Date().getFullYear()} Ian Bug. All rights reserved.</p>
+            <p className="mt-2">© {new Date().getFullYear()} Ian. All rights reserved.</p>
           </div>
         </div>
       </footer>
