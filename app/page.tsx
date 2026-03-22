@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button"
-import { Github, Code2, Cpu, Rocket } from "lucide-react"
+import { Github, Code2, Cpu, Rocket, Coffee } from "lucide-react"
 
 export default function Page() {
   const projects = [
@@ -8,15 +8,15 @@ export default function Page() {
       description: "A powerful injection tool built with Rust",
       url: "https://github.com/Ian-bug/ruin-injector",
       tech: ["Rust", "Systems"],
-      icon: <Code2 className="w-5 h-5" />
+      icon: <Code2 className="h-5 w-5" />,
     },
     {
       name: "RainingKeysPython",
       description: "Interactive keyboard visualization project",
       url: "https://github.com/Ian-bug/RainingKeysPython",
       tech: ["Python", "Interactive"],
-      icon: <Cpu className="w-5 h-5" />
-    }
+      icon: <Cpu className="h-5 w-5" />,
+    },
   ]
 
   const skills = [
@@ -24,40 +24,55 @@ export default function Page() {
     "Rust",
     "Frontend Development",
     "Backend Development",
-    "AI-Assisted Development"
+    "AI-Assisted Development",
   ]
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-background via-background to-muted/20">
       {/* Hero Section */}
       <section className="container mx-auto px-4 py-20 md:py-32">
-        <div className="max-w-4xl mx-auto text-center space-y-8">
+        <div className="mx-auto max-w-4xl space-y-8 text-center">
           <div className="space-y-4">
-            <h1 className="text-5xl md:text-7xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-foreground to-foreground/70">
+            <h1 className="bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-5xl font-bold text-transparent md:text-7xl">
               Ian
             </h1>
-            <p className="text-xl md:text-2xl text-muted-foreground">
+            <p className="text-xl text-muted-foreground md:text-2xl">
               Student Developer & Builder
             </p>
           </div>
 
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            I'm a student developer passionate about building things with code.
-            I leverage AI to bring ideas to life, working with everything from
-            low-level systems programming in Rust to Python automation and modern web development.
+          <p className="mx-auto max-w-2xl text-lg leading-relaxed text-muted-foreground">
+            I&apos;m a student developer passionate about building things with
+            code. I leverage AI to bring ideas to life, working with everything
+            from low-level systems programming in Rust to Python automation and
+            modern web development.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
             <Button asChild size="lg" className="gap-2">
-              <a href="https://github.com/Ian-bug" target="_blank" rel="noopener noreferrer">
-                <Github className="w-5 h-5" />
+              <a
+                href="https://github.com/Ian-bug"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Github className="h-5 w-5" />
                 View GitHub Profile
               </a>
             </Button>
             <Button asChild variant="outline" size="lg" className="gap-2">
               <a href="#projects">
-                <Rocket className="w-5 h-5" />
+                <Rocket className="h-5 w-5" />
                 See My Work
+              </a>
+            </Button>
+            <Button asChild variant="outline" size="lg" className="gap-2">
+              <a
+                href="https://ko-fi.com/Y8Y01WG0DL"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Coffee className="h-5 w-5" />
+                Support me on Ko-fi
               </a>
             </Button>
           </div>
@@ -66,13 +81,15 @@ export default function Page() {
 
       {/* Skills Section */}
       <section className="container mx-auto px-4 py-16">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-12">Skills & Technologies</h2>
-          <div className="flex flex-wrap gap-3 justify-center">
+        <div className="mx-auto max-w-4xl">
+          <h2 className="mb-12 text-center text-3xl font-bold">
+            Skills & Technologies
+          </h2>
+          <div className="flex flex-wrap justify-center gap-3">
             {skills.map((skill) => (
               <div
                 key={skill}
-                className="px-6 py-3 rounded-lg border border-border bg-card hover:bg-accent transition-colors cursor-default"
+                className="cursor-default rounded-lg border border-border bg-card px-6 py-3 transition-colors hover:bg-accent"
               >
                 <span className="font-medium">{skill}</span>
               </div>
@@ -83,33 +100,35 @@ export default function Page() {
 
       {/* Projects Section */}
       <section id="projects" className="container mx-auto px-4 py-16">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-12">Featured Projects</h2>
-          <div className="grid md:grid-cols-2 gap-6">
+        <div className="mx-auto max-w-6xl">
+          <h2 className="mb-12 text-center text-3xl font-bold">
+            Featured Projects
+          </h2>
+          <div className="grid gap-6 md:grid-cols-2">
             {projects.map((project) => (
               <a
                 key={project.name}
                 href={project.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group p-6 rounded-xl border border-border bg-card hover:border-primary/50 transition-all hover:shadow-lg hover:shadow-primary/5"
+                className="group rounded-xl border border-border bg-card p-6 transition-all hover:border-primary/50 hover:shadow-lg hover:shadow-primary/5"
               >
                 <div className="flex items-start gap-4">
-                  <div className="p-3 rounded-lg bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
+                  <div className="rounded-lg bg-primary/10 p-3 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
                     {project.icon}
                   </div>
-                  <div className="flex-1 min-w-0">
-                    <h3 className="text-xl font-semibold mb-2 group-hover:text-primary transition-colors">
+                  <div className="min-w-0 flex-1">
+                    <h3 className="mb-2 text-xl font-semibold transition-colors group-hover:text-primary">
                       {project.name}
                     </h3>
-                    <p className="text-muted-foreground mb-4 line-clamp-2">
+                    <p className="mb-4 line-clamp-2 text-muted-foreground">
                       {project.description}
                     </p>
                     <div className="flex flex-wrap gap-2">
                       {project.tech.map((tech) => (
                         <span
                           key={tech}
-                          className="text-xs px-2 py-1 rounded-md bg-muted text-muted-foreground"
+                          className="rounded-md bg-muted px-2 py-1 text-xs text-muted-foreground"
                         >
                           {tech}
                         </span>
@@ -125,14 +144,19 @@ export default function Page() {
 
       {/* Contact Section */}
       <section className="container mx-auto px-4 py-16">
-        <div className="max-w-2xl mx-auto text-center space-y-6">
-          <h2 className="text-3xl font-bold">Let's Connect</h2>
+        <div className="mx-auto max-w-2xl space-y-6 text-center">
+          <h2 className="text-3xl font-bold">Let&apos;s Connect</h2>
           <p className="text-muted-foreground">
-            Interested in my work or want to collaborate? Check out my GitHub profile for more projects and contributions.
+            Interested in my work or want to collaborate? Check out my GitHub
+            profile for more projects and contributions.
           </p>
           <Button asChild size="lg" variant="outline" className="gap-2">
-            <a href="https://github.com/Ian-bug" target="_blank" rel="noopener noreferrer">
-              <Github className="w-5 h-5" />
+            <a
+              href="https://github.com/Ian-bug"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Github className="h-5 w-5" />
               github.com/Ian-bug
             </a>
           </Button>
@@ -140,11 +164,13 @@ export default function Page() {
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-border mt-16">
+      <footer className="mt-16 border-t border-border">
         <div className="container mx-auto px-4 py-8">
           <div className="text-center text-sm text-muted-foreground">
             <p>Built with Next.js, shadcn/ui, and AI assistance</p>
-            <p className="mt-2">© {new Date().getFullYear()} Ian. All rights reserved.</p>
+            <p className="mt-2">
+              © {new Date().getFullYear()} Ian. All rights reserved.
+            </p>
           </div>
         </div>
       </footer>
