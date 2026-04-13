@@ -1,4 +1,5 @@
 import { Geist, Geist_Mono } from "next/font/google"
+import { Noto_Serif_JP } from "next/font/google"
 
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
@@ -14,6 +15,12 @@ const fontMono = Geist_Mono({
   variable: "--font-mono",
 })
 
+const fontDisplay = Noto_Serif_JP({
+  subsets: ["latin"],
+  weight: ["200", "300", "400", "500", "600", "700", "900"],
+  variable: "--font-display",
+})
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -25,13 +32,15 @@ export default function RootLayout({
       suppressHydrationWarning
       className={cn(
         "antialiased",
+        fontSans.variable,
         fontMono.variable,
-        "font-sans",
-        fontSans.variable
+        fontDisplay.variable,
+        "font-sans"
       )}
     >
-      <body>
+      <body className="overflow-x-hidden bg-background text-foreground">
         <ThemeProvider>{children}</ThemeProvider>
+        <div className="grain-overlay" aria-hidden="true" />
       </body>
     </html>
   )
