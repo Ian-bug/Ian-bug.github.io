@@ -1,6 +1,5 @@
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
 import {
   Card,
   CardHeader,
@@ -26,7 +25,7 @@ const projects = [
   {
     name: "Ruin Injector",
     description:
-      "A powerful injection tool built with Rust for advanced systems programming and runtime manipulation.",
+      "A Rust-based injection tool for advanced systems programming and runtime manipulation.",
     url: "https://github.com/Ian-bug/ruin-injector",
     tech: ["Rust", "Systems Programming"],
     icon: Code2,
@@ -34,7 +33,7 @@ const projects = [
   {
     name: "RainingKeysPython",
     description:
-      "Interactive keyboard visualization project built with Python for real-time input feedback and keylogging display.",
+      "Interactive keyboard visualization in Python for real-time input feedback and key display.",
     url: "https://github.com/Ian-bug/RainingKeysPython",
     tech: ["Python", "Interactive"],
     icon: Cpu,
@@ -48,32 +47,41 @@ const skills = [
   { name: "React / Next.js", level: 85, icon: Zap },
   { name: "Tailwind CSS", level: 88, icon: Sparkles },
   { name: "Systems Programming", level: 75, icon: Globe },
-  { name: "AI-Assisted Development", level: 92, icon: Sparkles },
+  { name: "AI-assisted development", level: 92, icon: Sparkles },
   { name: "Git & GitHub", level: 87, icon: Github },
 ]
 
 const stats = [
-  { value: "10+", label: "Projects Built", icon: Zap },
-  { value: "3+", label: "Languages", icon: Code2 },
-  { value: "\u221e", label: "Curiosity", icon: Sparkles },
-  { value: "24/7", label: "Building Mode", icon: Terminal },
+  { value: "10+", label: "projects built", icon: Zap },
+  { value: "3+", label: "languages", icon: Code2 },
+  { value: "\u221e", label: "curiosity", icon: Sparkles },
+  { value: "24/7", label: "building mode", icon: Terminal },
 ]
 
 export default function Page() {
   return (
     <div className="relative min-h-screen bg-background">
       <div className="pointer-events-none fixed inset-0">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_0%,oklch(1_0_0/0.04),transparent)]" />
-        <div className="absolute bottom-0 left-0 right-0 h-[600px] bg-[radial-gradient(ellipse_80%_60%_at_50%_100%,oklch(1_0_0/0.02),transparent)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_0%,var(--foreground)/0.04,transparent)]" />
+        <div className="absolute right-0 bottom-0 left-0 h-[600px] bg-[radial-gradient(ellipse_80%_60%_at_50%_100%,var(--foreground)/0.02,transparent)]" />
       </div>
 
-      {/* NAV */}
-      <nav className="relative z-50 flex items-center justify-between px-6 py-5 md:px-10">
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:rounded-sm focus:bg-foreground focus:px-4 focus:py-2 focus:text-background"
+      >
+        Skip to content
+      </a>
+
+      <nav
+        className="relative z-50 flex items-center justify-between px-6 py-5 md:px-10"
+        aria-label="Main navigation"
+      >
         <div className="flex items-center gap-2.5">
           <span className="font-display text-lg font-bold tracking-tight">
             ian-bug
           </span>
-          <span className="hidden text-xs tracking-widest text-muted-foreground/60 uppercase sm:inline-block">
+          <span className="hidden text-xs tracking-widest text-muted-foreground/60 sm:inline-block">
             .dev
           </span>
         </div>
@@ -82,7 +90,7 @@ export default function Page() {
             asChild
             variant="ghost"
             size="sm"
-            className="gap-2 text-muted-foreground hover:text-foreground"
+            className="gap-2 text-muted-foreground transition-all hover:text-foreground active:scale-[0.97]"
           >
             <a
               href="https://github.com/Ian-bug"
@@ -96,14 +104,12 @@ export default function Page() {
         </div>
       </nav>
 
-      <main className="relative z-10">
-        {/* HERO */}
-        <section className="flex min-h-[88vh] items-center px-6 pt-4 pb-16 md:px-10 lg:px-16">
+      <main id="main-content" className="relative z-10">
+        <section className="flex min-h-[100dvh] items-center px-6 pt-4 pb-16 md:px-10 lg:px-16">
           <div className="mx-auto w-full max-w-7xl">
             <div className="grid items-center gap-14 lg:grid-cols-[1fr_360px] xl:grid-cols-[1fr_400px]">
-              {/* Left content */}
               <div className="space-y-8">
-                <div className="animate-fade-up inline-flex items-center gap-2.5 rounded-full border border-border/40 bg-card/40 px-4 py-1.5 backdrop-blur-sm">
+                <div className="animate-fade-up inline-flex items-center gap-2 rounded-sm border border-border/40 bg-card/40 px-4 py-1.5 backdrop-blur-sm">
                   <span className="relative flex size-2">
                     <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-foreground opacity-40" />
                     <span className="relative inline-flex size-2 rounded-full bg-foreground" />
@@ -114,13 +120,13 @@ export default function Page() {
                 </div>
 
                 <div className="space-y-5">
-                  <h1 className="animate-fade-up delay-100 font-display text-5xl leading-[1.05] font-black tracking-tight sm:text-6xl md:text-7xl lg:text-[5rem] xl:text-[5.5rem]">
+                  <h1 className="animate-fade-up font-display text-5xl leading-[1.05] font-black tracking-[-0.03em] delay-100 sm:text-6xl md:text-7xl lg:text-[5rem] xl:text-[5.5rem]">
                     I&apos;m{" "}
                     <span className="animate-shimmer bg-gradient-to-r from-foreground via-muted-foreground/70 to-foreground bg-clip-text text-transparent">
                       Ian
                     </span>
                   </h1>
-                  <p className="animate-fade-up delay-200 max-w-md text-base leading-relaxed text-muted-foreground md:text-lg">
+                  <p className="animate-fade-up max-w-[52ch] text-base leading-[1.7] text-muted-foreground delay-200 md:text-lg">
                     Student developer who turns ideas into code.
                     <br className="hidden sm:block" />
                     From{" "}
@@ -135,56 +141,54 @@ export default function Page() {
                   </p>
                 </div>
 
-                <div className="animate-fade-up delay-300 flex flex-wrap gap-3">
+                <div className="animate-fade-up flex flex-wrap gap-3 delay-300">
                   <Button
                     asChild
                     size="lg"
-                    className="group relative gap-2 overflow-hidden bg-foreground px-7 font-semibold text-background transition-all hover:bg-foreground/90"
+                    className="group relative gap-2 overflow-hidden bg-foreground px-7 font-semibold text-background transition-all duration-200 hover:bg-foreground/90 hover:shadow-lg hover:shadow-foreground/10 active:translate-y-px active:scale-[0.97]"
                   >
                     <a
                       href="https://github.com/Ian-bug"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      <Github className="size-4 transition-transform group-hover:scale-110" />
+                      <Github className="size-4 transition-transform duration-200 group-hover:scale-110" />
                       View GitHub
-                      <ArrowRight className="size-3.5 transition-transform group-hover:translate-x-1" />
+                      <ArrowRight className="size-3.5 transition-transform duration-200 group-hover:translate-x-1" />
                     </a>
                   </Button>
                   <Button
                     asChild
                     variant="outline"
                     size="lg"
-                    className="gap-2 border-border/50 bg-transparent px-7 font-semibold backdrop-blur-sm hover:border-foreground/30 hover:bg-card"
+                    className="gap-2 border-border/50 bg-transparent px-7 font-semibold backdrop-blur-sm transition-all duration-200 hover:border-foreground/30 hover:bg-card active:translate-y-px active:scale-[0.97]"
                   >
                     <a href="#projects">
                       <Terminal className="size-4" />
-                      See My Work
+                      See my work
                     </a>
                   </Button>
                 </div>
 
-                <div className="animate-fade-up delay-400 flex flex-wrap items-center gap-2 pt-1">
-                  <span className="text-[11px] font-medium tracking-[0.15em] text-muted-foreground/50 uppercase">
-                    Tech stack
+                <div className="animate-fade-up flex flex-wrap items-center gap-2 pt-1 delay-400">
+                  <span className="text-[11px] font-medium tracking-[0.1em] text-muted-foreground/50">
+                    tech stack
                   </span>
                   <div className="mx-2 h-3 w-px bg-border/50" />
                   {["Python", "Rust", "TypeScript", "Next.js"].map((tech) => (
-                    <Badge
+                    <span
                       key={tech}
-                      variant="outline"
-                      className="border-border/30 bg-transparent px-2.5 py-0.5 text-[11px] font-normal text-muted-foreground/80 transition-colors hover:border-foreground/30 hover:text-foreground"
+                      className="border-b border-border/30 px-2.5 py-0.5 text-[11px] font-normal text-muted-foreground/80 transition-colors duration-200 hover:border-foreground/30 hover:text-foreground"
                     >
                       {tech}
-                    </Badge>
+                    </span>
                   ))}
                 </div>
               </div>
 
-              {/* Right: Avatar */}
-              <div className="animate-scale-in delay-300 flex items-center justify-center lg:justify-end">
+              <div className="animate-scale-in flex items-center justify-center delay-300 lg:justify-end">
                 <div className="relative">
-                  <div className="absolute -inset-3 rounded-sm bg-foreground/5 blur-xl" />
+                  <div className="absolute -inset-4 rounded-sm bg-foreground/5 blur-2xl" />
 
                   <div className="relative">
                     <div className="absolute -inset-px rounded-none bg-gradient-to-b from-border/30 via-transparent to-border/20" />
@@ -202,10 +206,10 @@ export default function Page() {
                     </div>
                   </div>
 
-                  <div className="animate-float absolute -bottom-3 -right-3 flex items-center gap-2 rounded-sm border border-border/40 bg-card/95 px-4 py-2.5 shadow-lg backdrop-blur-md">
+                  <div className="animate-float absolute -right-3 -bottom-3 flex items-center gap-2 rounded-sm border border-border/40 bg-card/95 px-4 py-2.5 shadow-lg shadow-foreground/[0.06] backdrop-blur-md">
                     <Sparkles className="size-3.5 text-foreground" />
                     <span className="text-xs font-semibold tracking-wide">
-                      Student Dev
+                      Student dev
                     </span>
                   </div>
                 </div>
@@ -214,23 +218,25 @@ export default function Page() {
           </div>
         </section>
 
-        {/* STATS BAR */}
-        <section className="border-y border-border/40 bg-card/20 backdrop-blur-sm">
-          <div className="mx-auto grid max-w-4xl grid-cols-2 gap-8 px-6 py-10 md:grid-cols-4 md:py-12">
+        <section
+          className="border-y border-border/40 bg-card/30 backdrop-blur-sm"
+          aria-label="Stats"
+        >
+          <div className="mx-auto grid max-w-4xl grid-cols-2 gap-10 px-6 py-14 md:grid-cols-4 md:py-16">
             {stats.map((stat) => {
               const Icon = stat.icon
               return (
                 <div
                   key={stat.label}
-                  className="group flex flex-col items-center gap-2.5 text-center"
+                  className="group flex flex-col items-center gap-3 text-center"
                 >
-                  <div className="flex size-9 items-center justify-center rounded-sm border border-border/30 bg-card/50 transition-all group-hover:border-foreground/20 group-hover:bg-foreground/5">
-                    <Icon className="size-4 text-muted-foreground transition-colors group-hover:text-foreground" />
+                  <div className="flex size-10 items-center justify-center rounded-sm border border-border/30 bg-card/60 transition-all duration-200 group-hover:border-foreground/20 group-hover:bg-foreground/5">
+                    <Icon className="size-4 text-muted-foreground transition-colors duration-200 group-hover:text-foreground" />
                   </div>
-                  <div className="font-display text-2xl font-bold tracking-tight tabular-nums md:text-3xl">
+                  <div className="font-display text-3xl font-bold tracking-[-0.02em] tabular-nums md:text-4xl">
                     {stat.value}
                   </div>
-                  <div className="text-[11px] font-medium tracking-[0.12em] text-muted-foreground/60 uppercase">
+                  <div className="text-[11px] font-medium text-muted-foreground/60">
                     {stat.label}
                   </div>
                 </div>
@@ -239,18 +245,14 @@ export default function Page() {
           </div>
         </section>
 
-        {/* SKILLS */}
-        <section className="px-6 py-24 md:px-10 lg:px-16">
+        <section className="px-6 py-28 md:px-10 lg:px-16" aria-label="Skills">
           <div className="mx-auto max-w-5xl">
-            <div className="mb-14 space-y-3">
-              <Badge
-                variant="outline"
-                className="border-border/30 bg-transparent px-3 py-1 text-[11px] font-medium tracking-wider text-muted-foreground"
-              >
-                Expertise
-              </Badge>
-              <h2 className="font-display text-3xl font-black tracking-tight md:text-4xl lg:text-5xl">
-                Skills &amp; Tools
+            <div className="mb-16 space-y-3">
+              <span className="text-[11px] font-medium tracking-[0.1em] text-muted-foreground/60">
+                expertise
+              </span>
+              <h2 className="font-display text-3xl font-black tracking-[-0.02em] md:text-4xl lg:text-5xl">
+                Skills &amp; tools
               </h2>
               <div className="h-px w-16 bg-foreground/20" />
             </div>
@@ -259,22 +261,22 @@ export default function Page() {
               {skills.map((skill, index) => (
                 <div
                   key={skill.name}
-                  className="group relative rounded-sm border border-border/30 bg-card/30 p-5 backdrop-blur-sm transition-all duration-400 hover:-translate-y-0.5 hover:border-border/60 hover:bg-card/60 hover:shadow-lg hover:shadow-foreground/[0.03]"
+                  className="group relative rounded-sm border border-border/25 bg-card/20 p-5 backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-border/50 hover:bg-card/50 hover:shadow-lg hover:shadow-foreground/[0.04] active:scale-[0.98]"
                   style={{ animationDelay: `${index * 60}ms` }}
                 >
                   <div className="relative space-y-3">
                     <div className="flex items-center justify-between">
-                      <skill.icon className="size-5 text-muted-foreground/70 transition-colors group-hover:text-foreground" />
-                      <span className="font-mono text-[11px] font-bold text-muted-foreground/50">
+                      <skill.icon className="size-5 text-muted-foreground/70 transition-colors duration-200 group-hover:text-foreground" />
+                      <span className="font-mono text-[11px] font-bold text-muted-foreground/40">
                         {skill.level}%
                       </span>
                     </div>
                     <h3 className="text-sm font-semibold tracking-tight">
                       {skill.name}
                     </h3>
-                    <div className="h-0.5 w-full overflow-hidden rounded-full bg-border/40">
+                    <div className="h-0.5 w-full overflow-hidden rounded-full bg-border/30">
                       <div
-                        className="h-full rounded-full bg-foreground/60 transition-all duration-700 ease-out group-hover:w-full group-hover:bg-foreground/80"
+                        className="h-full rounded-full bg-foreground/50 transition-all duration-700 ease-out group-hover:w-full group-hover:bg-foreground/80"
                         style={{ width: `${skill.level}%` }}
                       />
                     </div>
@@ -285,20 +287,20 @@ export default function Page() {
           </div>
         </section>
 
-        <Separator className="mx-auto max-w-5xl opacity-40" />
+        <Separator className="mx-auto max-w-5xl opacity-30" />
 
-        {/* PROJECTS */}
-        <section id="projects" className="px-6 py-24 md:px-10 lg:px-16">
+        <section
+          id="projects"
+          className="px-6 py-28 md:px-10 lg:px-16"
+          aria-label="Projects"
+        >
           <div className="mx-auto max-w-5xl">
-            <div className="mb-14 space-y-3">
-              <Badge
-                variant="outline"
-                className="border-border/30 bg-transparent px-3 py-1 text-[11px] font-medium tracking-wider text-muted-foreground"
-              >
-                Portfolio
-              </Badge>
-              <h2 className="font-display text-3xl font-black tracking-tight md:text-4xl lg:text-5xl">
-                Featured Projects
+            <div className="mb-16 space-y-3">
+              <span className="text-[11px] font-medium tracking-[0.1em] text-muted-foreground/60">
+                portfolio
+              </span>
+              <h2 className="font-display text-3xl font-black tracking-[-0.02em] md:text-4xl lg:text-5xl">
+                Featured projects
               </h2>
               <div className="h-px w-16 bg-foreground/20" />
             </div>
@@ -314,38 +316,37 @@ export default function Page() {
                     rel="noopener noreferrer"
                     className="group block"
                   >
-                    <Card className="relative h-full overflow-hidden border-border/30 bg-card/30 backdrop-blur-sm transition-all duration-500 hover:-translate-y-0.5 hover:border-border/50 hover:shadow-xl hover:shadow-foreground/[0.03]">
+                    <Card className="relative h-full overflow-hidden border-border/25 bg-card/20 backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-border/40 hover:shadow-xl hover:shadow-foreground/[0.04] active:scale-[0.99]">
                       <CardHeader className="pb-3">
                         <div className="flex items-start gap-4">
-                          <div className="flex size-11 shrink-0 items-center justify-center rounded-sm border border-border/30 bg-card/60 transition-all duration-300 group-hover:border-foreground/20 group-hover:bg-foreground/5">
-                            <Icon className="size-4 text-muted-foreground transition-colors group-hover:text-foreground" />
+                          <div className="flex size-11 shrink-0 items-center justify-center rounded-sm border border-border/25 bg-card/50 transition-all duration-200 group-hover:border-foreground/15 group-hover:bg-foreground/5">
+                            <Icon className="size-4 text-muted-foreground transition-colors duration-200 group-hover:text-foreground" />
                           </div>
                           <div className="min-w-0 flex-1">
-                            <CardTitle className="text-base font-bold tracking-tight transition-colors group-hover:text-foreground">
+                            <CardTitle className="text-base font-bold tracking-tight transition-colors duration-200 group-hover:text-foreground">
                               {project.name}
                             </CardTitle>
                           </div>
-                          <ExternalLink className="mt-1 size-3.5 shrink-0 text-muted-foreground/40 opacity-0 transition-all duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:opacity-100" />
+                          <ExternalLink className="mt-1 size-3.5 shrink-0 text-muted-foreground/30 opacity-0 transition-all duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-foreground/60 group-hover:opacity-100" />
                         </div>
                       </CardHeader>
                       <CardContent className="-mt-1">
-                        <CardDescription className="text-sm leading-relaxed text-muted-foreground/80">
+                        <CardDescription className="text-sm leading-relaxed text-muted-foreground/70">
                           {project.description}
                         </CardDescription>
                       </CardContent>
-                      <CardFooter>
+                      <CardFooter className="mt-auto">
                         <div className="flex flex-wrap gap-1.5">
                           {project.tech.map((tech) => (
-                            <Badge
+                            <span
                               key={tech}
-                              variant="outline"
-                              className="border-border/25 bg-transparent px-2 py-0 text-[10px] font-normal text-muted-foreground/60 hover:border-foreground/20 hover:text-foreground"
+                              className="border-b border-border/20 px-2 py-0 text-[10px] font-normal text-muted-foreground/50 transition-colors duration-200 group-hover:border-foreground/20 group-hover:text-foreground/70"
                             >
                               {tech}
-                            </Badge>
+                            </span>
                           ))}
                         </div>
-                        <div className="ml-auto flex items-center gap-1 text-[11px] font-medium text-muted-foreground/50 opacity-0 transition-all duration-300 group-hover:opacity-100">
+                        <div className="ml-auto flex items-center gap-1 text-[11px] font-medium text-muted-foreground/40 opacity-0 transition-all duration-300 group-hover:opacity-100">
                           <span>View</span>
                           <ArrowRight className="size-2.5" />
                         </div>
@@ -358,23 +359,27 @@ export default function Page() {
           </div>
         </section>
 
-        <Separator className="mx-auto max-w-5xl opacity-40" />
+        <Separator className="mx-auto max-w-5xl opacity-30" />
 
-        {/* CONTACT / CTA */}
-        <section className="relative px-6 py-28 md:px-10 lg:px-16">
-          <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
-            <div className="size-[450px] rounded-full bg-foreground/[0.02] blur-[100px]" />
+        <section
+          className="relative overflow-hidden px-6 py-32 md:px-10 lg:px-16"
+          aria-label="Contact"
+        >
+          <div className="pointer-events-none absolute inset-0">
+            <div className="absolute top-1/2 left-1/2 size-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-foreground/[0.025] blur-[120px]" />
+            <div className="absolute bottom-0 left-0 size-[300px] rounded-full bg-foreground/[0.015] blur-[80px]" />
+            <div className="absolute top-0 right-0 size-[250px] rounded-full bg-foreground/[0.015] blur-[80px]" />
           </div>
 
           <div className="relative mx-auto max-w-3xl text-center">
-            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-border/40 bg-card/40 px-4 py-1.5 backdrop-blur-sm">
-              <Globe className="size-3.5 text-muted-foreground" />
+            <div className="mb-8 inline-flex items-center gap-2 rounded-sm border border-border/30 bg-card/30 px-4 py-1.5 backdrop-blur-sm">
+              <Globe className="size-3.5 text-muted-foreground/70" />
               <span className="text-[11px] font-medium tracking-wide text-muted-foreground">
                 Let&apos;s connect
               </span>
             </div>
 
-            <h2 className="font-display text-4xl font-black tracking-tight md:text-5xl lg:text-6xl">
+            <h2 className="font-display text-4xl font-black tracking-[-0.02em] md:text-5xl lg:text-6xl">
               Got a project idea?
               <br />
               <span className="animate-shimmer bg-gradient-to-r from-foreground via-muted-foreground/60 to-foreground bg-clip-text text-transparent">
@@ -382,25 +387,25 @@ export default function Page() {
               </span>
             </h2>
 
-            <p className="mx-auto mt-5 max-w-md text-base text-muted-foreground md:text-lg">
+            <p className="mx-auto mt-6 max-w-md text-base leading-[1.7] text-muted-foreground md:text-lg">
               Check out my GitHub for more projects, contributions, and things
               I&apos;m currently working on.
             </p>
 
-            <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
+            <div className="mt-12 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
               <Button
                 asChild
                 size="lg"
-                className="group relative gap-2.5 overflow-hidden bg-foreground px-8 text-base font-semibold text-background shadow-lg shadow-foreground/10 transition-all hover:bg-foreground/90 hover:shadow-xl hover:shadow-foreground/15"
+                className="group relative gap-2.5 overflow-hidden bg-foreground px-8 text-base font-semibold text-background shadow-lg shadow-foreground/10 transition-all duration-200 hover:bg-foreground/90 hover:shadow-xl hover:shadow-foreground/15 active:translate-y-px active:scale-[0.97]"
               >
                 <a
                   href="https://github.com/Ian-bug"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <Github className="size-5 transition-transform group-hover:rotate-12" />
+                  <Github className="size-5 transition-transform duration-200 group-hover:rotate-12" />
                   github.com/Ian-bug
-                  <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
+                  <ArrowRight className="size-4 transition-transform duration-200 group-hover:translate-x-1" />
                 </a>
               </Button>
             </div>
@@ -408,19 +413,26 @@ export default function Page() {
         </section>
       </main>
 
-      {/* FOOTER */}
-      <footer className="relative z-10 border-t border-border/30">
-        <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-6 py-6 sm:flex-row md:px-10">
-          <p className="text-sm text-muted-foreground/60">
-            &copy; {new Date().getFullYear()} Ian. All rights reserved.
+      <footer className="relative z-10 border-t border-border/20">
+        <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-6 py-8 sm:flex-row md:px-10">
+          <p className="text-sm text-muted-foreground/50">
+            &copy; {new Date().getFullYear()} Ian
           </p>
-          <div className="flex items-center gap-4">
-            <p className="text-[11px] text-muted-foreground/40">
+          <div className="flex items-center gap-6">
+            <a
+              href="https://github.com/Ian-bug"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[11px] text-muted-foreground/40 transition-colors duration-200 hover:text-muted-foreground/70"
+            >
+              GitHub
+            </a>
+            <span className="text-[11px] text-muted-foreground/30">
               Built with Next.js, shadcn/ui &amp; Tailwind CSS
-            </p>
+            </span>
           </div>
         </div>
-        <div className="h-px w-full bg-gradient-to-r from-transparent via-border to-transparent" />
+        <div className="h-px w-full bg-gradient-to-r from-transparent via-border/50 to-transparent" />
       </footer>
     </div>
   )

@@ -38,7 +38,7 @@ export default function RootLayout({
         "font-sans"
       )}
     >
-      <body className="overflow-x-hidden bg-background text-foreground">
+      <body className="overflow-x-hidden scroll-smooth bg-background text-foreground">
         <ThemeProvider>{children}</ThemeProvider>
         <div className="grain-overlay" aria-hidden="true" />
       </body>
