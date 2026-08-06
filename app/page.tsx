@@ -195,7 +195,7 @@ export default function Page() {
 
                     <div className="relative overflow-hidden bg-card">
                       <Image
-                        src="/img/OdtSYaV.jpg"
+                        src="/img/profilepic.jpg"
                         alt="Ian"
                         width={400}
                         height={400}
